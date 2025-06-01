@@ -1,7 +1,14 @@
 #!/bin/bash
 
-echo "Ejecutando instalación de dependencias con pnpm..."
+echo " Comprobando si pnpm está instalado..."
+if ! command -v pnpm &> /dev/null; then
+  echo " pnpm no está instalado. Por favor instálalo con:"
+  echo "   npm install -g pnpm"
+  exit 1
+fi
+
+echo " pnpm encontrado. Instalando dependencias..."
 pnpm install
 
-echo "Instalación terminada. Ahora puedes ejecutar 'pnpm start' para correr el proyecto."
+echo " Instalación completada. Ejecuta 'pnpm start' para correr el proyecto."
 
